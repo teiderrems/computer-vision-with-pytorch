@@ -1,0 +1,11 @@
+torch>=2.0
+torchvision>=0.15
+numpy>=1.21
+matplotlib>=3.5
+tqdm>=4.60
+scikit-learn>=1.0
+torchsummary>=1.5.1
+jupyterlab>=3.0
+ipykernel>=6.0
+notebook>=6.0
+papermill>=2.3
