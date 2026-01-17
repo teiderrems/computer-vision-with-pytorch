@@ -35,13 +35,27 @@ Remarque : installez la version de `torch` adaptée à votre GPU / CUDA si néce
 **Utilisation des notebooks**
 - Ouvrir un notebook avec `jupyter lab` ou `jupyter notebook` depuis la racine du dépôt.
 - Les notebooks incluent des cellules pour télécharger les données (`torchvision.datasets.FashionMNIST`) si elles ne sont pas déjà présentes.
-- Pour exécuter les notebooks, activez l'environnement virtuel et lancez :
+- Pour exécuter les notebooks interactivement, activez l'environnement virtuel et lancez :
 
 ```bash
 source .venv/bin/activate
 jupyter lab
 ```
 
+- Pour l'exécution automatisée ou lister les notebooks, utilisez le script `run_notebooks.sh` (rendre exécutable avec `chmod +x run_notebooks.sh`). Le script recherche récursivement les fichiers `*.ipynb` en ignorant les répertoires `.ipynb_checkpoints` et les environnements virtuels communs (`.venv`, `venv`, `env`).
+
+```bash
+# lister les notebooks trouvés
+./run_notebooks.sh list
+
+# exécuter tous les notebooks (timeout illimité par défaut)
+./run_notebooks.sh execute
+
+# ajuster le timeout d'exécution (en secondes), par exemple 600 pour 10 minutes
+NBEXEC_TIMEOUT=600 ./run_notebooks.sh execute
+```
+
+- L'exécution utilise `jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=...` pour exécuter chaque notebook en place.
 **Emplacement des données et des poids**
 - Jeux de données téléchargés : `td1/data/FashionMNIST/raw/` et `td4/data/FashionMNIST/raw/`.
 - Poids des modèles : `td1/model_weights/01_fmnist_model_no_cnn.pth`, `td4/model_weights/04_simple_cnn_model.pth`.
