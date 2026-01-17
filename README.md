@@ -2,20 +2,17 @@
 
 Ce dépôt contient plusieurs notebooks et fichiers d'accompagnement pour des travaux pratiques d'initiation à la vision par ordinateur avec PyTorch (classification et convolution). Le contenu est organisé en séances (`td1` à `td4`) couvrant : préparation des données, perceptron multicouche, filtrage par convolution et premier CNN.
 
-**Structure du dépôt**
-- `td1/` : TP « Classification Fashion-MNIST sans Convolution » (`01_pb_without_CNN.ipynb`) et jeu de données partiel + poids modèle.
-- `td2/` : TP « Comprendre la Convolution » (`02_convolution_filter.ipynb`).
-- `td3/` : TP sur l'application des convolutions aux images (`03_convolution_image.ipynb`) et images exemples.
-- `td4/` : TP « Premier CNN » (`04_first_CNN.ipynb`) et poids du modèle simple.
-
-- `td*/data/FashionMNIST/raw/` : fichiers bruts du dataset Fashion-MNIST (idx3 / idx1).
-- `td*/model_weights/` : poids modèles sauvegardés (ex. `01_fmnist_model_no_cnn.pth`, `04_simple_cnn_model.pth`).
+**Structure du dépôt (actuelle)**
+- Les notebooks Jupyter sont placés à la racine du dépôt (exemples : `01_pb_without_CNN_correction.ipynb`, `02_convolution_filter.ipynb`, `03_convolution_image.ipynb`, `04_first_CNN.ipynb`, `05_data_augmentation.ipynb`, `06_classifiy_cats_dogs.ipynb`, `08_kp_regression_resnet.ipynb`, `09_YOLO_data_format.ipynb`, ainsi que plusieurs fichiers `Copy of ...`).
+- `run_notebooks.sh` : script utilitaire pour lister/exécuter les notebooks (`list` / `execute`).
+- Fichiers auxiliaires : `requirements.txt`, `README.md`, `LICENSE`, etc.
 
 **Notebooks principaux**
-- `td1/01_pb_without_CNN.ipynb` : pipeline complet d'un MLP pour Fashion-MNIST (préparation, entraînement, évaluation, visualisations). 
-- `td2/02_convolution_filter.ipynb` : exploration pas-à-pas de la convolution 2D avec NumPy puis PyTorch.
-- `td3/03_convolution_image.ipynb` : exemples d'application de filtres et visualisations sur images.
-- `td4/04_first_CNN.ipynb` : implémentation d'un premier réseau convolutionnel simple et expérimentation.
+- `01_pb_without_CNN_correction.ipynb` : pipeline MLP pour Fashion-MNIST (préparation, entraînement, évaluation, visualisations).
+- `02_convolution_filter.ipynb` : exploration de la convolution 2D avec NumPy puis PyTorch.
+- `03_convolution_image.ipynb` : application de filtres et visualisations sur images.
+- `04_first_CNN.ipynb` : implémentation d'un premier réseau convolutionnel simple.
+- `05_data_augmentation.ipynb`, `06_classifiy_cats_dogs.ipynb`, `08_kp_regression_resnet.ipynb`, `09_YOLO_data_format.ipynb` : autres exercices et exemples.
 
 **Dépendances (suggestions)**
 - Python 3.8+ recommandé.
@@ -57,14 +54,14 @@ NBEXEC_TIMEOUT=600 ./run_notebooks.sh execute
 
 - L'exécution utilise `jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=...` pour exécuter chaque notebook en place.
 **Emplacement des données et des poids**
-- Jeux de données téléchargés : `td1/data/FashionMNIST/raw/` et `td4/data/FashionMNIST/raw/`.
-- Poids des modèles : `td1/model_weights/01_fmnist_model_no_cnn.pth`, `td4/model_weights/04_simple_cnn_model.pth`.
+- Les jeux de données et poids ne sont pas inclus par défaut dans le dépôt actuel. Les notebooks contiennent des cellules pour télécharger automatiquement les datasets via `torchvision.datasets` (ex. FashionMNIST).
+- Si vous souhaitez fournir des poids localement, placez-les sous `model_weights/` à la racine (ex. `model_weights/04_simple_cnn_model.pth`) et adaptez les chemins dans les notebooks.
 
 Pour charger des poids dans un modèle PyTorch, exemple :
 
 ```python
 # map_location='cpu' si pas de GPU
-model.load_state_dict(torch.load('td1/model_weights/01_fmnist_model_no_cnn.pth', map_location=device))
+model.load_state_dict(torch.load('model_weights/04_simple_cnn_model.pth', map_location=device))
 ```
 
 **Conseils et points d'attention**
