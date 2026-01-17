@@ -14,6 +14,24 @@ Ce dépôt contient plusieurs notebooks et fichiers d'accompagnement pour des tr
 - `04_first_CNN.ipynb` : implémentation d'un premier réseau convolutionnel simple.
 - `05_data_augmentation.ipynb`, `06_classifiy_cats_dogs.ipynb`, `08_kp_regression_resnet.ipynb`, `09_YOLO_data_format.ipynb` : autres exercices et exemples.
 
+**Liste complète des notebooks (dans le dépôt)**
+- `01_pb_without_CNN_correction.ipynb` : MLP pour Fashion-MNIST — préparation des données, entraînement et évaluation (sans convolution).
+- `02_convolution_filter.ipynb` : Théorie et implémentation de filtres de convolution 2D (NumPy et PyTorch).
+- `03_convolution_image.ipynb` : Application de filtres sur images avec visualisations d'exemples.
+- `04_first_CNN.ipynb` : Premier réseau convolutionnel simple — architecture, entraînement et poids d'exemple.
+- `05_data_augmentation.ipynb` : Techniques d'augmentation (flips, rotations, color jitter, random crop) et effets sur les performances.
+- `06_classifiy_cats_dogs.ipynb` : Exemple de classification d'images (Cats vs Dogs) — pipeline de dataset, dataloader, modèle, entraînement.
+- `08_kp_regression_resnet.ipynb` : Régression de points clés (keypoint) en s'appuyant sur un backbone ResNet.
+- `09_YOLO_data_format.ipynb` : Format de données attendu par YOLO — annotation et conversion au format YOLO.
+- `Copy of 07_transfer_learning_VGG.ipynb` : Notebook de transfert d'apprentissage avec VGG (copie de travail).
+- `Copy of 10_YOLO_prepare.ipynb` : Préparation des datasets pour entraînement YOLO (copie de travail).
+- `Copy of 11_YOLO_train.ipynb` : Exemples d'entraînement YOLO et scripts d'initialisation (copie de travail).
+- `Copy of 12_conv_transpose.ipynb` : Exploration des convolutions transposées et opérations d'upsampling (copie de travail).
+- `Copy of 13_seg_dataset.ipynb` : Préparation de datasets pour segmentation sémantique (copie de travail).
+- `Copy of 14_custom_unet.ipynb` : Implémentation d'un UNet personnalisé pour segmentation (copie de travail).
+- `Copy of 15_segmentation_models_pytorch.ipynb` : Utilisation de la bibliothèque `segmentation_models_pytorch` pour architectures/entrainement (copie de travail).
+
+> Remarque : les fichiers marqués "Copy of ..." sont des duplicatas/versions de travail. Si vous souhaitez, nous pouvons les renommer ou les organiser dans un sous-dossier `work/` pour clarifier la structure.
 **Dépendances (suggestions)**
 - Python 3.8+ recommandé.
 - Bibliothèques Python : `torch`, `torchvision`, `numpy`, `matplotlib`, `tqdm`, `scikit-learn`, `torchsummary`.
